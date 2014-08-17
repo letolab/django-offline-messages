@@ -1,6 +1,6 @@
 # -*- coding: utf-8; mode: python; -*-
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 try:
     from django.utils.encoding import force_unicode
 except ImportError:
@@ -12,6 +12,9 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 
 from jsonfield import JSONField
+
+
+User = get_user_model()
 
 
 class OfflineMessageQuerySetManager(models.query.QuerySet):
