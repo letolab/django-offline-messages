@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.contrib.messages import constants
 try:
     from django.contrib.messages.tests import test_session as session_tests
@@ -8,6 +8,9 @@ except ImportError:
 from offline_messages.models import OfflineMessage
 from offline_messages.storage import OfflineStorageEngine
 from offline_messages.utils import create_offline_message
+
+
+User = get_user_model()
 
 
 class OfflineMessagesTests(session_tests.SessionTest):
